@@ -1,14 +1,35 @@
 <template>
-    <figure class="customFilterBtn">
-        <img src="@/assets/universitiesImg.svg" alt="Universities">
-        <figcaption>Библиотки</figcaption>
+    <figure :class="['customFilterBtn']" :style="colorImg">
+        <img :src="imgPath" :alt="description">
+        <figcaption>{{ description }}</figcaption>
     </figure>
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+        name: 'CustomFilterBtn',
+        props: {
+            imgPath: {
+                type: String,
+                required: true,
+            },
+            description: {
+                type: String,
+                required: true,
+            },
+            backgroundColor:  {
+                type: String,
+                required: true
+            }
+        },
+        computed: {
+            colorImg() {
+                return {
+                    'background-color': this.backgroundColor,
+                }
+            }
+        },
+    }
 </script>
 
 <style scoped>
@@ -23,9 +44,10 @@ export default {
     height: 75px;
     margin: 15px 5px;
     cursor: pointer;
+    background-color: transparent;
 }
 .customFilterBtn:hover {
-    background-color: aqua;
+    background-color: rgb(255, 255, 255) !important;
 }
 
 img {
@@ -34,6 +56,7 @@ img {
 }
 
 figcaption {
-    font-size: 0.6em;
+    font-size: 0.7em;
+    font-weight: 400;
 }
 </style>
