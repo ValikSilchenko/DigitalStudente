@@ -19,17 +19,21 @@
 </script>
 
 <style scoped>
-  .main_container {
+.main_container, .ya_map {
     display: flex;
+}
+  .main_container {
     height: 80vh;
     font-size: 20px;
   }
   .menu_left {
-    background-color: aqua;
+    background-color: white;
       width: 350px;
+      border-radius: 5px;
+      border: 1px solid white;
+      margin-right: 10px;
   }
   .ya_map {
     border-radius: 10px;
-    display: flex;
   }
 </style>

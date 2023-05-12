@@ -19,7 +19,6 @@
 <style scoped>
   .yandex__map {
     border-radius: 5px;
-    padding: 5px;
     width: 100vh;
   }
 </style>
