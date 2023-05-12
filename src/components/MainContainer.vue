@@ -21,8 +21,7 @@
 <style scoped>
   .main_container {
     display: flex;
-    height: 100vh;
-      width: 100vw;
+    height: 80vh;
     font-size: 20px;
   }
   .menu_left {
@@ -33,6 +32,6 @@
   .ya_map {
     background-color: green;
     border-radius: 10px;
-    width: 100%;
+    display: flex;
   }
 </style>
