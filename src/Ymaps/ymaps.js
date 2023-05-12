@@ -8,7 +8,7 @@ export default function init() {
   let universitiesCollection = new ymaps.GeoObjectCollection(null);
   let universitiesMarkConfig = {
     iconLayout: 'default#image',
-    iconImageHref: '/placeMarks/purpleSVG.svg',
+    iconImageHref: '/placeMarks/purpleMark.svg',
     iconImageSize: [55, 55],
     iconImageOffset: [-30, -40],
     iconColor: '#ff0000'

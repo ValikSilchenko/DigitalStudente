@@ -7,7 +7,7 @@
 
   export default {
     mounted() {
-      ymaps.ready(this.initMap)
+      ymaps.ready(init);
     },
     methods: {
       initMap() {
