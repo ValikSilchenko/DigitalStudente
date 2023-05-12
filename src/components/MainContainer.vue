@@ -21,15 +21,18 @@
 <style scoped>
   .main_container {
     display: flex;
-    height: 800px;
+    height: 100vh;
+      width: 100vw;
     font-size: 20px;
-    margin: 50px 25px;
   }
   .menu_left {
-    background-color: aqua;
+    background-color: transparent;
+      width: 35%;
+  ;
   }
   .ya_map {
     background-color: green;
     border-radius: 10px;
+    width: 100%;
   }
 </style>
