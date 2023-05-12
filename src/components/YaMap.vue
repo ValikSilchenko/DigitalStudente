@@ -1,5 +1,5 @@
 <template>
-  <div  class="yandex__map" id="map"></div>
+  <div class="yandex__map" id="map"></div>
 </template>
 
 <script>
@@ -7,9 +7,10 @@
     mounted() {
       ymaps.ready(() => {
         const map = new ymaps.Map('map', {
-          center: [55.76, 37.64],
-          zoom: 10
-        });
+          center: [59.938955, 30.315644],
+          zoom: 10,
+          controls: []
+        })
       })
     },
 
@@ -19,6 +20,7 @@
 <style scoped>
   .yandex__map {
     border-radius: 5px;
-    width: 100vh;
+    width: 100%;
   }
+
 </style>

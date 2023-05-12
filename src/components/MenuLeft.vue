@@ -1,5 +1,5 @@
 <template>
-  <div class="menu_left">
+  <div class="menu">
       <div class="studyPlaceSelection">
           <p style="font-size: 0.8em">Выберите место учебы:</p>
           <CustomSelect />
@@ -23,6 +23,17 @@ import CustomFilterBtn from "@/components/ui/CustomFilterBtn.vue";
 
 export default {
   name: 'MenuLeft',
+    data() {
+      return {
+          menuList: [ 
+            {
+              imgPath: 'dit/file',
+              description: 'Коворкинги',  
+            },
+
+          ]
+        }
+    },
     components: {CustomFilterBtn, CustomSelect, CustomInput},
 
 }
@@ -30,12 +41,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.menu_left, .filterBtns, .studyPlaceSelection {
+.menu, .filterBtns, .studyPlaceSelection {
     display: flex;
 }
 
-  .menu_left {
+  .menu {
       flex-direction: column;
+      padding: 10px;
   }
 
   .filterBtns {

@@ -1,7 +1,7 @@
 <template>
     <figure class="customFilterBtn">
         <img src="@/assets/universitiesImg.svg" alt="Universities">
-        <figcaption>ВУЗы</figcaption>
+        <figcaption>Библиотки</figcaption>
     </figure>
 </template>
 
@@ -19,8 +19,13 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 3px;
-    width: 65px;
-    height: 65px;
+    width: 75px;
+    height: 75px;
+    margin: 15px 5px;
+    cursor: pointer;
+}
+.customFilterBtn:hover {
+    background-color: aqua;
 }
 
 img {
