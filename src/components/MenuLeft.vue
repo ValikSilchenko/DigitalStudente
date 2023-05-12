@@ -6,7 +6,7 @@
       </div>
       <CustomInput />
       <div class="filterBtns">
-
+          <CustomFilterBtn />
       </div>
   </div>
 </template>
@@ -14,10 +14,11 @@
 <script>
 import CustomInput from "@/components/ui/CustomInput.vue";
 import CustomSelect from "@/components/ui/CustomSelect.vue";
+import CustomFilterBtn from "@/components/ui/CustomFilterBtn.vue";
 
 export default {
   name: 'MenuLeft',
-    components: {CustomSelect, CustomInput},
+    components: {CustomFilterBtn, CustomSelect, CustomInput},
 
 }
 </script>
