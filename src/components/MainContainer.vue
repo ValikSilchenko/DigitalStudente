@@ -25,12 +25,10 @@
     font-size: 20px;
   }
   .menu_left {
-    background-color: transparent;
-      width: 35%;
-  ;
+    background-color: aqua;
+      width: 350px;
   }
   .ya_map {
-    background-color: green;
     border-radius: 10px;
     display: flex;
   }
