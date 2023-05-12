@@ -19,7 +19,7 @@
 </script>
 
 <style scoped>
-  .main_container {
+.main_container {
     display: flex;
     justify-content: center;
     height: 80vh;

@@ -1,5 +1,7 @@
 <template>
-    <input type="text" placeholder="Поиск" class="customInput">
+    <select class="customSelect">
+
+    </select>
 </template>
 
 <script>
@@ -9,9 +11,9 @@ export default {
 </script>
 
 <style scoped>
-.customInput {
+.customSelect {
+    width: 50%;
     padding: 5px;
-    margin: 5px;
     border: 2px solid black;
     border-radius: 5px;
 }
