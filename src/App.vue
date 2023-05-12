@@ -1,5 +1,5 @@
 <template>
-  <div><MainContainer></MainContainer></div>
+  <div class="main__app"><MainContainer></MainContainer></div>
 </template>
 
 <script>
@@ -17,5 +17,12 @@
   body {
     margin: 0;
     padding: 0;
+    background-color: rgb(65, 61, 61);
+  }
+  .main__app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 </style>

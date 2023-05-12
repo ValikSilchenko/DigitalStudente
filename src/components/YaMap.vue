@@ -1,5 +1,5 @@
 <template>
-  <div  class="yandex__map" id="map" style="width: 600px; height: 400px"></div>
+  <div  class="yandex__map" id="map"></div>
 </template>
 
 <script>
@@ -20,5 +20,6 @@
   .yandex__map {
     border-radius: 5px;
     padding: 5px;
+    width: 100vh;
   }
 </style>
