@@ -6,7 +6,11 @@
       </div>
       <CustomInput />
       <div class="filterBtns">
-
+          <CustomFilterBtn />
+          <CustomFilterBtn />
+          <CustomFilterBtn />
+          <CustomFilterBtn />
+          <CustomFilterBtn />
       </div>
   </div>
 </template>
@@ -14,6 +18,7 @@
 <script>
 import CustomInput from "@/components/ui/CustomInput.vue";
 import CustomSelect from "@/components/ui/CustomSelect.vue";
+import CustomFilterBtn from "@/components/ui/CustomFilterBtn.vue";
 
 export default {
   name: 'MenuLeft',
@@ -28,7 +33,8 @@ export default {
 
           ]
         }
-    }
+    },
+    components: {CustomFilterBtn, CustomSelect, CustomInput},
 
 }
 </script>
@@ -45,7 +51,9 @@ export default {
   }
 
   .filterBtns {
-      flex-direction: row;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px
   }
 
   .studyPlaceSelection {
