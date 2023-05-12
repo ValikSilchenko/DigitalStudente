@@ -1,16 +1,17 @@
 <template>
   <div class="menu">
       <div class="studyPlaceSelection">
-          <p style="font-size: 0.8em">Выберите место учебы:</p>
+          <p>Выберите место учебы:</p>
           <CustomSelect />
       </div>
       <CustomInput />
       <div class="filterBtns">
-          <CustomFilterBtn />
-          <CustomFilterBtn />
-          <CustomFilterBtn />
-          <CustomFilterBtn />
-          <CustomFilterBtn />
+          <CustomFilterBtn v-for="item in menuList"
+            :imgPath="item.imgPath"
+            :description="item.description"
+            :backgroundColor="item.backgroundColor"
+          >
+          </CustomFilterBtn>
       </div>
   </div>
 </template>
@@ -27,10 +28,25 @@ export default {
       return {
           menuList: [ 
             {
-              imgPath: 'dit/file',
-              description: 'Коворкинги',  
+              imgPath: '/universImg.svg',
+              description: 'ВУЗы',
+              backgroundColor: 'rgb(183, 116, 245)',
             },
-
+            {
+              imgPath: '/kovorkingImg.svg',
+              description: 'Коворкинги',
+              backgroundColor: 'rgb(253, 253, 22)',
+            },
+            {
+              imgPath: '/biblioteki.svg',
+              description: 'Библиотеки',
+              backgroundColor: 'rgb(105, 250, 255)',
+            },
+            {
+              imgPath: '/kafe.svg',
+              description: 'Кафе',
+              backgroundColor: 'rgb(235, 125, 0)',
+            },
           ]
         }
     },
