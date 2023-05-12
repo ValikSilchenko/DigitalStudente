@@ -3,14 +3,25 @@
 </template>
 
 <script>
+  import {map} from "core-js/internals/array-iteration";
+
   export default {
     mounted() {
       ymaps.ready(() => {
-        const map = new ymaps.Map('map', {
+        let map = new ymaps.Map('map', {
           center: [59.938955, 30.315644],
           zoom: 10,
           controls: []
-        })
+        });
+          // let location = ymaps.geolocation.get();
+          // location.then(
+          //     function(result) {
+          //         map.geoObjects.add(result.geoObjects);
+          //     },
+          //     function(error) {
+          //         console.log('Ошибка: ' + error);
+          //     }
+          // )
       })
     },
 
