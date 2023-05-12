@@ -7,6 +7,11 @@
       <CustomInput />
       <div class="filterBtns">
           <CustomFilterBtn />
+          <CustomFilterBtn />
+          <CustomFilterBtn />
+          <CustomFilterBtn />
+          <CustomFilterBtn />
+          <CustomFilterBtn />
       </div>
   </div>
 </template>
@@ -34,7 +39,9 @@ export default {
   }
 
   .filterBtns {
-      flex-direction: row;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
   }
 
   .studyPlaceSelection {

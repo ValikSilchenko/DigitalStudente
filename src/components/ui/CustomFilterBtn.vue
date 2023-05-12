@@ -1,7 +1,7 @@
 <template>
     <figure class="customFilterBtn">
         <img src="@/assets/universitiesImg.svg" alt="Universities">
-        <figcaption>Какоенибульогрмноеназваниенебеатьпиздос</figcaption>
+        <figcaption>ВУЗы</figcaption>
     </figure>
 </template>
 
@@ -16,7 +16,6 @@ export default {
     border: 1px solid black;
     border-radius: 5px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     padding: 3px;
