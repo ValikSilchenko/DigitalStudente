@@ -23,27 +23,26 @@ import CustomFilterBtn from "@/components/ui/CustomFilterBtn.vue";
 
 export default {
   name: 'MenuLeft',
-    components: {CustomSelect, CustomInput},
     data() {
       return {
           menuList: [ 
             {
-              imgPath: '/universImg.svg',
+              imgPath: '/menuImages/universImg.svg',
               description: 'ВУЗы',
               backgroundColor: 'rgb(183, 116, 245)',
             },
             {
-              imgPath: '/kovorkingImg.svg',
+              imgPath: '/menuImages/kovorkingImg.svg',
               description: 'Коворкинги',
               backgroundColor: 'rgb(253, 253, 22)',
             },
             {
-              imgPath: '/biblioteki.svg',
+              imgPath: '/menuImages/biblioteki.svg',
               description: 'Библиотеки',
               backgroundColor: 'rgb(105, 250, 255)',
             },
             {
-              imgPath: '/kafe.svg',
+              imgPath: '/menuImages/kafe.svg',
               description: 'Кафе',
               backgroundColor: 'rgb(235, 125, 0)',
             },
@@ -69,7 +68,7 @@ export default {
   .filterBtns {
       display: flex;
       flex-wrap: wrap;
-      gap: 25px
+      gap: 25px;
   }
 
   .studyPlaceSelection {

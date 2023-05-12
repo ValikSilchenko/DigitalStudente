@@ -47,7 +47,7 @@
     background-color: transparent;
 }
 .customFilterBtn:hover {
-    background-color: rgb(227, 227, 228) !important;
+    background-color: rgb(255, 255, 255) !important;
 }
 
 img {

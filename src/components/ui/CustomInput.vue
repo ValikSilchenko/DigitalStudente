@@ -1,5 +1,5 @@
 <template>
-    <input type="text" placeholder="Поиск" class="customInput">
+    <input type="text" placeholder="Поиск..." class="customInput">
 </template>
 
 <script>
@@ -14,5 +14,10 @@ export default {
     margin: 5px;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+.customInput::placeholder {
+    font-style: italic;
+    color: black;
 }
 </style>

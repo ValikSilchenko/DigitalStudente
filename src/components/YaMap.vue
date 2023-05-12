@@ -3,14 +3,11 @@
 </template>
 
 <script>
+  import init from '../Ymaps/ymaps.js'
+
   export default {
     mounted() {
-      ymaps.ready(() => {
-        const map = new ymaps.Map('map', {
-          center: [55.76, 37.64],
-          zoom: 10
-        });
-      })
+      ymaps.ready(init)
     },
 
   }
