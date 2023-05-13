@@ -14,4 +14,5 @@ export default function init() {
     iconImageOffset: [-30, -40]
   })
   map.geoObjects.add(myPlacemark);
+
 }
