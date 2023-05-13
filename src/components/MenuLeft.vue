@@ -57,7 +57,7 @@ export default {
                     backgroundColor: 'rgb(235, 125, 0)',
                 },
                 {
-                    id: "Музеи",
+                    id: "Музей",
                     imgPath: '/menuImages/museum.svg',
                     description: 'Музеи',
                     backgroundColor: 'rgb(40, 220, 0)',

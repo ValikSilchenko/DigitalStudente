@@ -43,10 +43,10 @@ export default createStore({
         }
       },
       {
-        id: 'Музеи', 
+        id: 'Музей', 
         config: {
           iconLayout: 'default#image',
-          iconImageHref: '/placeMarks/whiteMark.svg',
+          iconImageHref: '/placeMarks/greenMark.svg',
           iconImageSize: [55, 55],
           iconImageOffset: [-30, -40],  
         }
@@ -73,12 +73,18 @@ export default createStore({
           console.log(state.placesArr)
 
           for(let place of state.placesArr) {
-            newCollection.add(new ymaps.Placemark(place.coords, {
+            newCollection.add(new ymaps.Placemark((() => {
+              if(btnId === 'ВУЗ' || btnId === 'Музей') {
+                return place.coords;
+              }
+              return place.coords.reverse();
+            })(), {
               balloonContentHeader: place.name,
               balloonContentBody: place.address,
             }, config))
           };
 
+          map.geoObjects.removeAll();
           map.geoObjects.add(newCollection);
 
         } catch (e) {
