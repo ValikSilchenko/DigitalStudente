@@ -16,7 +16,7 @@ export default function init() {
 
   let universitiesArr = [
     {
-      name: "ЛЭТИ",
+      name: "СПБГЭТУ \"ЛЭТИ\"",
       coordinates: [59.971942, 30.324294],
     },
     {
@@ -24,7 +24,7 @@ export default function init() {
       coordinates: [59.941636, 30.299563],
     },
     {
-      name: "БОНЧ",
+      name: "СПБГУТ",
       coordinates: [59.902821, 30.489175],
     }
   ];
