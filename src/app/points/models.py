@@ -73,7 +73,7 @@ establishment = sqlalchemy.Table(
     sqlalchemy.Column("id", sqlalchemy.Integer, sqlalchemy.Sequence("establishments_id_seq", metadata=metadata),
                       primary_key=True),
     sqlalchemy.Column("coords", sqlalchemy.VARCHAR(21), nullable=False),
-    sqlalchemy.Column("name", sqlalchemy.VARCHAR(60), nullable=False),
+    sqlalchemy.Column("name", sqlalchemy.VARCHAR, nullable=False),
     sqlalchemy.Column("address", sqlalchemy.VARCHAR, nullable=False),
     sqlalchemy.Column("website", sqlalchemy.VARCHAR)
 )
