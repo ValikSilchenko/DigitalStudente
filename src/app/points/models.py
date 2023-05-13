@@ -58,3 +58,31 @@ wifi_zone = sqlalchemy.Table(
     sqlalchemy.Column("coords", sqlalchemy.VARCHAR(21), nullable=False),
     sqlalchemy.Column("coverage", sqlalchemy.Integer, nullable=False),
 )
+
+category = sqlalchemy.Table(
+    "categories",
+    metadata,
+    sqlalchemy.Column("id", sqlalchemy.Integer, sqlalchemy.Sequence("categories_id_seq", metadata=metadata),
+                      primary_key=True),
+    sqlalchemy.Column("name", sqlalchemy.VARCHAR(30), nullable=False)
+)
+
+establishment = sqlalchemy.Table(
+    "establishments",
+    metadata,
+    sqlalchemy.Column("id", sqlalchemy.Integer, sqlalchemy.Sequence("establishments_id_seq", metadata=metadata),
+                      primary_key=True),
+    sqlalchemy.Column("coords", sqlalchemy.VARCHAR(21), nullable=False),
+    sqlalchemy.Column("name", sqlalchemy.VARCHAR(30), nullable=False),
+    sqlalchemy.Column("address", sqlalchemy.VARCHAR, nullable=False),
+    sqlalchemy.Column("website", sqlalchemy.VARCHAR(40))
+)
+
+category_establishment = sqlalchemy.Table(
+    "category_establishment",
+    metadata,
+    sqlalchemy.Column("category_id", sqlalchemy.Integer, sqlalchemy.ForeignKey("categories.id"), nullable=False,
+                      primary_key=True),
+    sqlalchemy.Column("establishment_id", sqlalchemy.Integer, sqlalchemy.ForeignKey("establishments.id"), nullable=False,
+                      primary_key=True)
+)
