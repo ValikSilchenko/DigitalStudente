@@ -12,7 +12,7 @@ export default function init() {
     iconImageHref: '/placeMarks/purpleMark.svg',
     iconImageSize: [55, 55],
     iconImageOffset: [-30, -40]
-  })
+  });
   map.geoObjects.add(myPlacemark);
-
+  console.log('Hello');
 }
