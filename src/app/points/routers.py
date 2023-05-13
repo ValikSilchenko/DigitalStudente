@@ -98,16 +98,6 @@ async def get_point_by_category(category_str: str, session: AsyncSession = Depen
             d["coords"] = list(map(float, d["coords"].split(';')))
         return metros
 
-    @router.get("/metro/{metro_str}", status_code=200)
-    async def get_point_by_metro(metro_str: str, session: AsyncSession = Depends(get_async_session)):
-        query = select(metro.c.id).filter(metro.c.name.ilike(metro_str.lower()))
-        result = await session.execute(query)
-        metros = list(map(lambda x: x[0], result.all()))
-
-        for d in metros:
-            d["coords"] = list(map(float, d["coords"].split(';')))
-        return metros
-
     @router.get("/museum/{museum_str}", status_code=200)
     async def get_point_by_museum(museum_str: str, session: AsyncSession = Depends(get_async_session)):
         query = select(museum).filter(museum.c.name.ilike(museum_str.lower()))
