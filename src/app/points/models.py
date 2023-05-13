@@ -64,7 +64,7 @@ category = sqlalchemy.Table(
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, sqlalchemy.Sequence("categories_id_seq", metadata=metadata),
                       primary_key=True),
-    sqlalchemy.Column("name", sqlalchemy.VARCHAR(30), nullable=False)
+    sqlalchemy.Column("name", sqlalchemy.VARCHAR(60), nullable=False)
 )
 
 establishment = sqlalchemy.Table(
@@ -73,9 +73,9 @@ establishment = sqlalchemy.Table(
     sqlalchemy.Column("id", sqlalchemy.Integer, sqlalchemy.Sequence("establishments_id_seq", metadata=metadata),
                       primary_key=True),
     sqlalchemy.Column("coords", sqlalchemy.VARCHAR(21), nullable=False),
-    sqlalchemy.Column("name", sqlalchemy.VARCHAR(30), nullable=False),
+    sqlalchemy.Column("name", sqlalchemy.VARCHAR(60), nullable=False),
     sqlalchemy.Column("address", sqlalchemy.VARCHAR, nullable=False),
-    sqlalchemy.Column("website", sqlalchemy.VARCHAR(40))
+    sqlalchemy.Column("website", sqlalchemy.VARCHAR)
 )
 
 category_establishment = sqlalchemy.Table(
