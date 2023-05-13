@@ -6,7 +6,7 @@
       </div>
       <CustomInput />
       <div class="filterBtns">
-          <CustomFilterBtn @click="addMarks()" v-for="item in menuList"
+          <CustomFilterBtn @click="addMarks(item.id)" v-for="item in menuList"
             :imgPath="item.imgPath"
             :description="item.description"
             :backgroundColor="item.backgroundColor"
@@ -33,21 +33,25 @@ export default {
         return {
             menuList: [ 
                 {
+                    id: 'universities',
                     imgPath: '/menuImages/universImg.svg',
                     description: 'ВУЗы',
                     backgroundColor: 'rgb(183, 116, 245)',
                 },
                 {
+                    id: "coworkings",
                     imgPath: '/menuImages/kovorkingImg.svg',
                     description: 'Коворкинги',
                     backgroundColor: 'rgb(253, 253, 22)',
                 },
                 {
+                    id: "libraries",
                     imgPath: '/menuImages/biblioteki.svg',
                     description: 'Библиотеки',
                     backgroundColor: 'rgb(105, 250, 255)',
                 },
                 {
+                    id: "cafe",
                     imgPath: '/menuImages/kafe.svg',
                     description: 'Кафе',
                     backgroundColor: 'rgb(235, 125, 0)',

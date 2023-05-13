@@ -20,7 +20,7 @@
             backgroundColor:  {
                 type: String,
                 required: true
-            }
+            },
         },
         computed: {
             colorImg() {

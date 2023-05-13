@@ -3,17 +3,13 @@
 </template>
 
 <script>
-  import init from '../Ymaps/ymaps.js'
-  import { mapActions } from 'vuex';
+  import { init } from '../Ymaps/ymaps.js'
 
   export default {
     mounted() {
-      this.createMap();
+      ymaps.ready(init);
     },
     methods: {
-      ...mapActions({
-        createMap: 'createMap',
-      }), 
     }
   }
 </script>
