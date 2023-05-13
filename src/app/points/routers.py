@@ -88,34 +88,34 @@ async def get_point_by_category(category_str: str, session: AsyncSession = Depen
 
         return data
 
-    @router.get("/metro/{metro_str}", status_code=200)
-    async def get_point_by_metro(metro_str: str, session: AsyncSession = Depends(get_async_session)):
-        query = select(metro.c.id).filter(metro.c.name.ilike(metro_str.lower()))
-        result = await session.execute(query)
-        metros = list(map(lambda x: x[0], result.all()))
+@router.get("/metro/{metro_str}", status_code=200)
+async def get_point_by_metro(metro_str: str, session: AsyncSession = Depends(get_async_session)):
+    query = select(metro.c.id).filter(metro.c.name.ilike(metro_str.lower()))
+    result = await session.execute(query)
+    metros = list(map(lambda x: x[0], result.all()))
 
-        for d in metros:
-            d["coords"] = list(map(float, d["coords"].split(';')))
-        return metros
+    for d in metros:
+        d["coords"] = list(map(float, d["coords"].split(';')))
+    return metros
 
-    @router.get("/museum/{museum_str}", status_code=200)
-    async def get_point_by_museum(museum_str: str, session: AsyncSession = Depends(get_async_session)):
-        query = select(museum).filter(museum.c.name.ilike(museum_str.lower()))
-        result = await session.execute(query)
-        museums = list(map(lambda x: dict(x), result.mappings().all()))
+@router.get("/museum/{museum_str}", status_code=200)
+async def get_point_by_museum(museum_str: str, session: AsyncSession = Depends(get_async_session)):
+    query = select(museum).filter(museum.c.name.ilike(museum_str.lower()))
+    result = await session.execute(query)
+    museums = list(map(lambda x: dict(x), result.mappings().all()))
 
-        for d in museums:
-            d["coords"] = list(map(float, d["coords"].split(';')))
+    for d in museums:
+        d["coords"] = list(map(float, d["coords"].split(';')))
 
-        return museums
+    return museums
 
-    @router.get("/university/{university_str}", status_code=200)
-    async def get_point_by_university(university_str: str, session: AsyncSession = Depends(get_async_session)):
-        query = select(university).filter(university.c.name.ilike(university_str.lower()))
-        result = await session.execute(query)
-        universities = list(map(lambda x: dict(x), result.mappings().all()))
+@router.get("/university/{university_str}", status_code=200)
+async def get_point_by_university(university_str: str, session: AsyncSession = Depends(get_async_session)):
+    query = select(university).filter(university.c.name.ilike(university_str.lower()))
+    result = await session.execute(query)
+    universities = list(map(lambda x: dict(x), result.mappings().all()))
 
-        for d in universities:
-            d["coords"] = list(map(float, d["coords"].split(';')))
+    for d in universities:
+        d["coords"] = list(map(float, d["coords"].split(';')))
 
-        return universities
+    return universities
