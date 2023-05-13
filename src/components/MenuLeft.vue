@@ -20,7 +20,7 @@
 import CustomInput from "./ui/CustomInput.vue";
 import CustomSelect from "./ui/CustomSelect.vue";
 import CustomFilterBtn from "./ui/CustomFilterBtn.vue";
-import { mapMutations, mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
     name: 'MenuLeft',
@@ -33,42 +33,45 @@ export default {
         return {
             menuList: [ 
                 {
-                    id: 'universities',
+                    id: 'ВУЗ',
                     imgPath: '/menuImages/universImg.svg',
                     description: 'ВУЗы',
                     backgroundColor: 'rgb(183, 116, 245)',
                 },
                 {
-                    id: "coworkings",
+                    id: "Коворкинг",
                     imgPath: '/menuImages/kovorkingImg.svg',
                     description: 'Коворкинги',
                     backgroundColor: 'rgb(253, 253, 22)',
                 },
                 {
-                    id: "libraries",
+                    id: "Библиотека",
                     imgPath: '/menuImages/biblioteki.svg',
                     description: 'Библиотеки',
                     backgroundColor: 'rgb(105, 250, 255)',
                 },
                 {
-                    id: "cafe",
+                    id: "Кафе",
                     imgPath: '/menuImages/kafe.svg',
                     description: 'Кафе',
                     backgroundColor: 'rgb(235, 125, 0)',
                 },
+                {
+                    id: "Музеи",
+                    imgPath: '/menuImages/museum.svg',
+                    description: 'Музеи',
+                    backgroundColor: 'rgb(40, 220, 0)',
+                }
             ],
-            yaMap: null,
+            
         }
     },
     mounted() {},
     computed: {
-      ...mapState({
-        // yaMap: 'map',
-      })
     },
     methods: {
       ...mapActions({
-        addMarks: 'addMarks',
+        addMarks: 'addMarksFromType',
         createMap: 'createMap',
       }),
     }
