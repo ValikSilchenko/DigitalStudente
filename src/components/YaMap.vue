@@ -3,20 +3,17 @@
 </template>
 
 <script>
-  //import init from '../Ymaps/ymaps.js'
+  import init from '../Ymaps/ymaps.js'
+  import { mapActions } from 'vuex';
 
   export default {
     mounted() {
-      ymaps.ready(init);
+      this.createMap();
     },
     methods: {
-      initMap() {
-        const map = new ymaps.Map('map', {
-          center: [59.938955, 30.315644],
-          zoom: 10,
-          controls: []
-        });
-      },
+      ...mapActions({
+        createMap: 'createMap',
+      }), 
     }
   }
 </script>

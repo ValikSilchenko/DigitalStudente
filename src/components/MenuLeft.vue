@@ -6,7 +6,7 @@
       </div>
       <CustomInput />
       <div class="filterBtns">
-          <CustomFilterBtn v-for="item in menuList"
+          <CustomFilterBtn @click="addMarks()" v-for="item in menuList"
             :imgPath="item.imgPath"
             :description="item.description"
             :backgroundColor="item.backgroundColor"
@@ -17,12 +17,18 @@
 </template>
 
 <script>
-import CustomInput from "@/components/ui/CustomInput.vue";
-import CustomSelect from "@/components/ui/CustomSelect.vue";
-import CustomFilterBtn from "@/components/ui/CustomFilterBtn.vue";
+import CustomInput from "./ui/CustomInput.vue";
+import CustomSelect from "./ui/CustomSelect.vue";
+import CustomFilterBtn from "./ui/CustomFilterBtn.vue";
+import { mapMutations, mapActions, mapState } from "vuex";
 
 export default {
     name: 'MenuLeft',
+    components: {
+        CustomInput,
+        CustomSelect,
+        CustomFilterBtn,
+    },
     data() {
         return {
             menuList: [ 
@@ -46,9 +52,22 @@ export default {
                     description: 'Кафе',
                     backgroundColor: 'rgb(235, 125, 0)',
                 },
-            ]
+            ],
+            yaMap: null,
         }
     },
+    mounted() {},
+    computed: {
+      ...mapState({
+        // yaMap: 'map',
+      })
+    },
+    methods: {
+      ...mapActions({
+        addMarks: 'addMarks',
+        createMap: 'createMap',
+      }),
+    }
 }
 </script>
 
