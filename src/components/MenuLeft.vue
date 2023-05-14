@@ -2,9 +2,13 @@
   <div class="menu">
       <div class="studyPlaceSelection">
           <p>Выберите место учебы:</p>
-          <CustomSelect />
+          <CustomSelect
+            :universities="universities"
+            @changeSelect="changeUniversity"
+          >
+          </CustomSelect>
       </div>
-      <CustomInput />
+      <CustomInput @change="findPlace()"></CustomInput>
       <div class="filterBtns">
           <CustomFilterBtn @click="addMarks(item.id)" v-for="item in menuList"
             :imgPath="item.imgPath"
@@ -20,7 +24,8 @@
 import CustomInput from "./ui/CustomInput.vue";
 import CustomSelect from "./ui/CustomSelect.vue";
 import CustomFilterBtn from "./ui/CustomFilterBtn.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState, mapGetters } from "vuex";
+import { map } from "@/Ymaps/ymaps";
 
 export default {
     name: 'MenuLeft',
@@ -66,14 +71,42 @@ export default {
             
         }
     },
-    mounted() {},
+    mounted() {
+        this.loadUniversities();
+    },
     computed: {
+        ...mapGetters({
+            coords: "getCoords"
+        }),
+        ...mapState({
+            universities: "universities",
+            marksConfigs: "marksConfigs",
+        })
     },
     methods: {
       ...mapActions({
         addMarks: 'addMarksFromType',
-        createMap: 'createMap',
+        loadUniversities: 'loadUniversities',
+        loadCoordsByAdress: "loadCoordsByAdress"
       }),
+      async changeUniversity(universityName) {
+        if (map.geoObjects.getLength()) {
+            map.geoObjects.removeAll();
+        }
+        
+        let university = this.universities.find(item => item.name === universityName);
+        let addressArray = university.address.split(';');
+
+        await this.loadCoordsByAdress(addressArray)
+
+        for (let i = 0; i < this.coords.length; i++) {
+            map.geoObjects.add(new ymaps.Placemark(this.coords[i], {
+                balloonContentHeader: university.name,
+                balloonContentBody: addressArray[i],
+            }, this.marksConfigs.find(config => config.id === "ownUniversity").config));
+        }
+      },
+      
     }
 }
 </script>
@@ -100,5 +133,7 @@ export default {
       align-items: center;
       justify-content: space-between;
       margin: 5px;
+      font-size: 0.7em;
+      font-weight: 700;
   }
 </style>
