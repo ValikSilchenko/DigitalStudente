@@ -62,6 +62,15 @@ export default createStore({
           iconImageOffset: [-30, -40],  
         }
       },
+      {
+        id: 'findedPlaces', 
+        config: {
+          iconLayout: 'default#image',
+          iconImageHref: '/placeMarks/whiteMark.svg',
+          iconImageSize: [55, 55],
+          iconImageOffset: [-30, -40],  
+        }
+      },
     ]
   },
   getters: {
@@ -126,6 +135,37 @@ export default createStore({
         } catch {
           alert("Ошибка геокодирования")
         }
+      }
+    },
+    async findPlaceByNameAndAddress({ state }, str) {
+      if (map.geoObjects.getLength()) {
+        map.geoObjects.removeAll();
+      }
+
+      let mapCenter = map.getCenter().join(';');
+      console.log(mapCenter)
+      try {
+        const response = await axios.get(`http://194.87.248.192:8001/point/search?search_query=${str}&area_center=${mapCenter}`);
+        let places = response.data;
+
+        for (let place of places) {
+          console.log(place.category)
+          map.geoObjects.add(new ymaps.Placemark(
+            (() => {
+              if(place.category === 'ВУЗ' || place.category === 'музей') {
+                return place.coords.split(';');
+              }
+              return place.coords.split(';').reverse();
+            })(),
+            {
+              balloonContentHeader: place.name,
+              balloonContentBody: place.address,
+            }, 
+            state.marksConfigs.find(config => config.id.toLowerCase() === place.category.toLowerCase()).config))
+        }
+
+      } catch {
+        console.log("Ошибка поиска");
       }
     }
   },

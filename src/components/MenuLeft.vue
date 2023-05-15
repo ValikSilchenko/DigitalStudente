@@ -8,7 +8,10 @@
           >
           </CustomSelect>
       </div>
-      <CustomInput @change="findPlace()"></CustomInput>
+      <CustomInput 
+        @find="findPlace" 
+        :searchString="searchString">
+      </CustomInput>
       <div class="filterBtns">
           <CustomFilterBtn @click="addMarks(item.id)" v-for="item in menuList"
             :imgPath="item.imgPath"
@@ -68,7 +71,7 @@ export default {
                     backgroundColor: 'rgb(40, 220, 0)',
                 }
             ],
-            
+            searchString: '',
         }
     },
     mounted() {
@@ -87,7 +90,8 @@ export default {
       ...mapActions({
         addMarks: 'addMarksFromType',
         loadUniversities: 'loadUniversities',
-        loadCoordsByAdress: "loadCoordsByAdress"
+        loadCoordsByAdress: "loadCoordsByAdress",
+        findPlaceByNameAndAddress: "findPlaceByNameAndAddress",
       }),
       async changeUniversity(universityName) {
         if (map.geoObjects.getLength()) {
@@ -106,7 +110,10 @@ export default {
             }, this.marksConfigs.find(config => config.id === "ownUniversity").config));
         }
       },
-      
+      findPlace(str) {
+        this.searchString = str;
+        this.findPlaceByNameAndAddress(str);
+      }
     }
 }
 </script>

@@ -1,10 +1,22 @@
 <template>
-    <input type="text" placeholder="Поиск..." class="customInput">
+    <input 
+        type="text" 
+        placeholder="Поиск..."
+        class="customInput"
+        :value="searchString"
+        @change="$emit('find', $event.target.value)"
+    >
 </template>
 
 <script>
 export default {
-
+    name: "CustomInput",
+    props: {
+        searchString: {
+            type: String,
+        }
+    },
+    emits: ['find'],
 }
 </script>
 

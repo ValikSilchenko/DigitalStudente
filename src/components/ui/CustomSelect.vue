@@ -17,7 +17,8 @@ export default {
             type: Array,
             required: true,
         }
-    }
+    },
+    emits: ['changeSelect'],
 }
 </script>
 
